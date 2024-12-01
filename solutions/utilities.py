@@ -1,4 +1,5 @@
 import os
+import re
 import timeit
 from typing import Any
 from typing import Callable
@@ -78,3 +79,7 @@ def run_and_measure(func: Callable, args: List[Any], n: int) -> float:
     total_time = timeit.timeit(lambda: func(*args), number=n)
     average_time = total_time / n
     return average_time
+
+
+def get_day(string: str) -> int:
+    return int(re.findall(r"day_(\d+)\.py", os.path.basename(string))[0])

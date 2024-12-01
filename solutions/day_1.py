@@ -1,7 +1,9 @@
 import logging
+import sys
 from collections import Counter
 
 import fire
+import utilities
 from main import main
 
 logging.basicConfig(level=logging.INFO)
@@ -36,4 +38,5 @@ def solve_b(data: list[str]) -> int:
 
 
 if __name__ == "__main__":
+    sys.argv.append(f"--day={utilities.get_day(__file__)}")
     fire.Fire(main)

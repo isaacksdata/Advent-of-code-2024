@@ -17,8 +17,8 @@ def main(day: int = 1, part: str = "a", expected_sample: int = 0, test: bool = F
     solve_b = getattr(module, "solve_b")
 
     func = solve_a if part == "a" else solve_b
-    # sample_answer = func(sample)
-    # assert sample_answer == expected_sample, f"Failed Sample! Expected {expected_sample} but got {sample_answer}"
+    sample_answer = func(sample)
+    assert sample_answer == expected_sample, f"Failed Sample! Expected {expected_sample} but got {sample_answer}"
     logging.info("Sample Succeeded!")
 
     if not test:

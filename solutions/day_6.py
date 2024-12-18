@@ -95,7 +95,7 @@ def fill_route(arr: np.ndarray, turn_points: list[tuple[int, int]]) -> np.ndarra
     return z
 
 
-def solve_a(data: list[str]) -> int:
+def solve_a(data: list[str], example: bool = False) -> int:
     arr = np.array([list(l) for l in data])
     r, c = np.where(arr == START)
     current_position = (int(r[0]), int(c[0]))
@@ -105,7 +105,7 @@ def solve_a(data: list[str]) -> int:
     return int(np.sum(z))
 
 
-def solve_b(data: list[str]) -> int:
+def solve_b(data: list[str], example: bool = False) -> int:
     arr = np.array([list(l) for l in data])
     r, c = np.where(arr == START)
     current_position = (int(r[0]), int(c[0]))

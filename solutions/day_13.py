@@ -50,7 +50,7 @@ def solve_machine(
     return None, None
 
 
-def solve_a(data: list[str]) -> int:
+def solve_a(data: list[str], example: bool = False) -> int:
     data = [d for d in data if d != ""]
     machines = [data[i : i + 3] for i in range(0, len(data), 3)]
     total = 0
@@ -61,7 +61,7 @@ def solve_a(data: list[str]) -> int:
     return total
 
 
-def solve_b(data: list[str]) -> int:
+def solve_b(data: list[str], example: bool = False) -> int:
     data = [d for d in data if d != ""]
     machines = [data[i : i + 3] for i in range(0, len(data), 3)]
     total = 0

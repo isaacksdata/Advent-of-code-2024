@@ -43,7 +43,7 @@ def is_valid_antinode(node: tuple[int, int], arr: np.ndarray) -> bool:
     return not any(x < 0 for x in node) and node[0] < arr.shape[0] and node[1] < arr.shape[1]
 
 
-def solve_a(data: list[str]) -> int:
+def solve_a(data: list[str], example: bool = False) -> int:
     arr = np.array([list(a) for a in data])
     signals = [i for i in np.unique(arr) if i != "."]
     antinodes: list[tuple[int, int]] = []
@@ -61,7 +61,7 @@ def solve_a(data: list[str]) -> int:
     return len(set(antinodes))
 
 
-def solve_b(data: list[str]) -> int:
+def solve_b(data: list[str], example: bool = False) -> int:
     arr = np.array([list(a) for a in data])
     signals = [i for i in np.unique(arr) if i != "."]
     antinodes: list[tuple[int, int]] = []

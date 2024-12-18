@@ -60,7 +60,7 @@ def change_stones(stone_counts: dict[int, int]) -> dict[int, int]:
     return new_counts
 
 
-def solve_a(data: list[str]) -> int:
+def solve_a(data: list[str], example: bool = False) -> int:
     stones = [int(i) for i in data[0].split()]
     stone_counts = dict(Counter(stones))
     blinks = 25
@@ -69,7 +69,7 @@ def solve_a(data: list[str]) -> int:
     return sum(list(stone_counts.values()))
 
 
-def solve_b(data: list[str]) -> int:
+def solve_b(data: list[str], example: bool = False) -> int:
     stones = [int(i) for i in data[0].split()]
     stone_counts = dict(Counter(stones))
     blinks = 75

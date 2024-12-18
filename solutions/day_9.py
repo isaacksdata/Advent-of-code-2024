@@ -34,7 +34,7 @@ def checksum(data: np.ndarray) -> int:
     return int(np.sum(data * np.arange(data.shape[0])))
 
 
-def solve_a(data: list[str]) -> int:
+def solve_a(data: list[str], example: bool = False) -> int:
     data_input = [int(i) for i in list(data[0])]
     formatted_data = format_gaps(data_input)
     first_gap = find_first_gap(formatted_data)
@@ -81,7 +81,7 @@ def move_file(
     return False, formatted_data
 
 
-def solve_b(data: list[str]) -> int:
+def solve_b(data: list[str], example: bool = False) -> int:
     data_input = [int(i) for i in list(data[0])]
     formatted_data = format_gaps(data_input)
     files = get_file(formatted_data)

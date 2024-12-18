@@ -77,7 +77,7 @@ def follow_trail(arr: np.ndarray, trailhead: tuple[int, int], condition_fn: Call
         return len([h for h in path_heights if h == MAX_HEIGHT])
 
 
-def solve_a(data: list[str]) -> int:
+def solve_a(data: list[str], example: bool = False) -> int:
     arr = np.array([list(l) for l in data]).astype(int)
     total = 0
     trailheads = [(r, c) for r, c in zip(*np.where(arr == 0))]
@@ -86,7 +86,7 @@ def solve_a(data: list[str]) -> int:
     return total
 
 
-def solve_b(data: list[str]) -> int:
+def solve_b(data: list[str], example: bool = False) -> int:
     arr = np.array([list(l) for l in data]).astype(int)
     total = 0
     trailheads = [(r, c) for r, c in zip(*np.where(arr == 0))]

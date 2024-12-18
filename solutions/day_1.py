@@ -19,7 +19,7 @@ def get_lists(data: list[str]) -> tuple[list[int], list[int]]:
     return lefts, rights
 
 
-def solve_a(data: list[str]) -> int:
+def solve_a(data: list[str], example: bool = False) -> int:
     # sample = 11
     lefts, rights = get_lists(data)
     lefts = sorted(lefts)
@@ -29,7 +29,7 @@ def solve_a(data: list[str]) -> int:
     return distance
 
 
-def solve_b(data: list[str]) -> int:
+def solve_b(data: list[str], example: bool = False) -> int:
     # sample = 31
     lefts, rights = get_lists(data)
     right_counts = Counter(rights)

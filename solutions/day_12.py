@@ -46,7 +46,7 @@ def get_perimeter(
     return perimeter, perimeter_coords
 
 
-def solve_a(data: list[str]) -> int:
+def solve_a(data: list[str], example: bool = False) -> int:
     arr = np.array([list(l) for l in data])
     plants = np.unique(arr)
     total = 0
@@ -60,7 +60,7 @@ def solve_a(data: list[str]) -> int:
     return total
 
 
-def solve_b(data: list[str]) -> int:
+def solve_b(data: list[str], example: bool = False) -> int:
     arr = np.array([list(l) for l in data])
     plants = np.unique(arr)
     total = 0

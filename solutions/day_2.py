@@ -44,12 +44,12 @@ def check_report_with_dampener(report: list[int]) -> bool:
     return False
 
 
-def solve_a(data: list[str]) -> int:
+def solve_a(data: list[str], example: bool = False) -> int:
     result = [check_report(list(map(int, report.split()))) for report in data]
     return sum(result)
 
 
-def solve_b(data: list[str]) -> int:
+def solve_b(data: list[str], example: bool = False) -> int:
     result = [check_report_with_dampener(list(map(int, report.split()))) for report in data]
     return sum(result)
 

@@ -41,7 +41,7 @@ def solve_equation(equation: str, operations: list[Callable]) -> int:
     return 0
 
 
-def solve_a(data: list[str]) -> int:
+def solve_a(data: list[str], example: bool = False) -> int:
     total = 0
     for equation in tqdm(data):
         res = solve_equation(equation, ops)
@@ -50,7 +50,7 @@ def solve_a(data: list[str]) -> int:
 
 
 # todo this takes too long (~2mins) so there must be a short cut
-def solve_b(data: list[str]) -> int:
+def solve_b(data: list[str], example: bool = False) -> int:
     total = 0
     ops.append(concatenate)
     for equation in tqdm(data):

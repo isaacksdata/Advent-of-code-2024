@@ -24,7 +24,7 @@ def process_mul_operator(muls: list[str]) -> int:
     )
 
 
-def solve_a(data: list[str]) -> int:
+def solve_a(data: list[str], example: bool = False) -> int:
     total = 0
     for i in data:
         valid_muls = re.findall(MUL_PATTERN, i)
@@ -33,7 +33,7 @@ def solve_a(data: list[str]) -> int:
     return total
 
 
-def solve_b(data: list[str]) -> int:
+def solve_b(data: list[str], example: bool = False) -> int:
     string = "".join(data)
 
     donts = [instruction(operation=0, index=k.start()) for k in re.finditer(r"don't\(\)", string)]

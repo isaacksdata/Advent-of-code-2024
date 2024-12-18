@@ -51,7 +51,7 @@ def sum_middle_pages(updates: list[list[str]]) -> int:
     return total
 
 
-def solve_a(data: list[str]) -> int:
+def solve_a(data: list[str], example: bool = False) -> int:
     rules, updates = get_rules_and_updates(data)
     dependency_dict = get_dependency_dict(rules)
     correct_updates, incorrect_updates = classify_updates(dependency_dict, updates)
@@ -93,7 +93,7 @@ def correct(update: list[str], dependency_dict: dict[str, list[str]]) -> list[st
     return sorted(update, key=lambda k: levels[k])
 
 
-def solve_b(data: list[str]) -> int:
+def solve_b(data: list[str], example: bool = False) -> int:
     rules, updates = get_rules_and_updates(data)
     dependency_dict = get_dependency_dict(rules)
     correct_updates, incorrect_updates = classify_updates(dependency_dict, updates)

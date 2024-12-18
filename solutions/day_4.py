@@ -68,7 +68,7 @@ def to_formatted_array(data: list[str]) -> np.ndarray:
     return arr
 
 
-def solve_a(data: list[str]) -> int:
+def solve_a(data: list[str], example: bool = False) -> int:
     arr = to_formatted_array(data)
 
     # find potential start points - the Xs
@@ -114,7 +114,7 @@ def check_diagonals(
     return False, None
 
 
-def solve_b(data: list[str]) -> int:
+def solve_b(data: list[str], example: bool = False) -> int:
     # this time we will start with As and find the MAS crosses
     arr = to_formatted_array(data)
     row_coords, col_coords = np.where(arr == mapping.get("A"))

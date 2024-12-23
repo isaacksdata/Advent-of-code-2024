@@ -23,9 +23,9 @@ COORD = tuple[int, int]
 
 def run_maze_with_dijkstra(
     arr: np.ndarray,
-    start_pos: Optional[tuple[int, int]] = None,
-    direction: Optional[tuple[int, int]] = None,
-) -> tuple[int, list[tuple[int, int]], dict[COORD, int]]:
+    start_pos: Optional[COORD] = None,
+    direction: Optional[COORD] = None,
+) -> tuple[int, list[COORD], dict[COORD, int]]:
     rows, cols = arr.shape
     if start_pos is None:
         start_pos = (int(np.where(arr == START)[0][0]), int(np.where(arr == START)[1][0]))

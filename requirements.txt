@@ -11,3 +11,4 @@ pylint==3.0.2
 python-dotenv==1.0.0
 scipy==1.11.4
 tqdm==4.66.1
+z3-solver==4.13.4.0

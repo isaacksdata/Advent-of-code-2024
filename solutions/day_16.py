@@ -16,14 +16,16 @@ END = "E"
 WALL = "#"
 EMPTY = "."
 
+# some customised types
 MAZE_TILE = tuple[int, int, int, tuple[int, int], list[tuple[int, int]]]
+COORD = tuple[int, int]
 
 
 def run_maze_with_dijkstra(
     arr: np.ndarray,
     start_pos: Optional[tuple[int, int]] = None,
     direction: Optional[tuple[int, int]] = None,
-) -> tuple[int, list[tuple[int, int]], dict[tuple[int, int], int]]:
+) -> tuple[int, list[tuple[int, int]], dict[COORD, int]]:
     rows, cols = arr.shape
     if start_pos is None:
         start_pos = (int(np.where(arr == START)[0][0]), int(np.where(arr == START)[1][0]))
@@ -33,7 +35,7 @@ def run_maze_with_dijkstra(
     # Priority queue: (cumulative_cost, (row, col), direction of travel, path so far)
     # this means we take low cost paths first
     pq: list[MAZE_TILE] = [(0, start_pos[0], start_pos[1], direction, [])]
-    visited: dict[tuple[int, int], int] = {}
+    visited: dict[COORD, int] = {}
 
     while pq:
         cost, r, c, direction, path = heapq.heappop(pq)

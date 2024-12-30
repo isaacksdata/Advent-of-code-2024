@@ -6,6 +6,7 @@ jupyterlab==4.0.9
 matplotlib==3.8.2
 mypy==1.7.1
 numpy==1.26.2
+pandas==2.2.3
 pre-commit
 pylint==3.0.2
 python-dotenv==1.0.0

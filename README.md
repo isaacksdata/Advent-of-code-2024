@@ -1,5 +1,5 @@
-![](https://img.shields.io/badge/day%20%F0%9F%93%85-22-blue)
-![](https://img.shields.io/badge/stars%20%E2%AD%90-45-yellow)
+![](https://img.shields.io/badge/day-22-blue)
+![](https://img.shields.io/badge/stars-45-yellow)
 ![](https://img.shields.io/badge/days%20completed-25-red)
 
 # AOC 2024

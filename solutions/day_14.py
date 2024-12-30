@@ -142,4 +142,6 @@ def solve_b(data: list[str], example: bool = False) -> int:
 
 if __name__ == "__main__":
     sys.argv.append(f"--day={utilities.get_day(__file__)}")
+    sys.argv.append("--part=b")
+    sys.argv.append("--expected_sample=None")
     fire.Fire(main)

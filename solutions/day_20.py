@@ -1,5 +1,6 @@
 import logging
 import sys
+import time
 from collections import deque
 from typing import Optional
 
@@ -26,7 +27,8 @@ def bfs(
     cheat: tuple[int, int],
     invalid: str | int = WALL,
     max_steps: Optional[int] = None,
-) -> tuple[int, list[tuple[int, int]], np.ndarray]:
+    return_path: bool = True,
+) -> tuple[int, Optional[list[tuple[int, int]]], Optional[np.ndarray]]:
     q = deque([start])
     path = [start]
     visited = np.zeros(arr.shape)
@@ -41,7 +43,7 @@ def bfs(
             if (
                 0 <= new_r < arr.shape[0]
                 and 0 <= new_c < arr.shape[1]
-                and ((arr[new_r, new_c] != invalid) or ((new_r, new_c) in cheat))
+                and ((arr[new_r, new_c] != invalid) or ((new_r, new_c) == cheat))
                 and visited[new_r, new_c] == 0
             ):
                 visited[new_r, new_c] = steps + 1
@@ -53,6 +55,9 @@ def bfs(
             break
 
     visited[*start] = 0
+    if not return_path:
+        r = visited[*end] if ended else -1
+        return r, None, None
     if not ended:
         for i in range(1, int(np.max(visited))):
             path.extend([(i, j) for i, j in zip(*np.where(visited == i))])
@@ -68,7 +73,7 @@ def solve_a(data: list[str], example: bool = False) -> int:
     start = (int(np.where(arr == START)[0][0]), int(np.where(arr == START)[1][0]))
     end = (int(np.where(arr == END)[0][0]), int(np.where(arr == END)[1][0]))
     steps, path, _ = bfs(arr, start, end, (-1, -1))
-
+    assert path is not None
     walls = set([(x, y) for x, y in zip(*np.where(arr == WALL))])
     walls = {(w_x, w_y) for w_x, w_y in walls if (0 < w_x < arr.shape[0] - 1 and 0 < w_y < arr.shape[1] - 1)}
     walls = {(w_x, w_y) for w_x, w_y in walls if (sum(arr[w_x + dx, w_y + dy] == WALL for dx, dy in DIRECTIONS) < 3)}
@@ -76,7 +81,7 @@ def solve_a(data: list[str], example: bool = False) -> int:
 
     count = 0
     for w_x, w_y in tqdm(walls):
-        cheat_steps, _, _ = bfs(arr, start, end, (w_x, w_y))
+        cheat_steps, _, _ = bfs(arr, start, end, (w_x, w_y), max_steps=steps, return_path=False)
         if steps - cheat_steps >= saving:
             count += 1
     return count
@@ -95,6 +100,8 @@ def solve_b(data: list[str], example: bool = False) -> int:
     start = (int(np.where(arr == START)[0][0]), int(np.where(arr == START)[1][0]))
     end = (int(np.where(arr == END)[0][0]), int(np.where(arr == END)[1][0]))
     steps, path, visited = bfs(arr, start, end, (-1, -1))
+    assert path is not None
+    assert visited is not None
     visited[*start] = 0
     cheat_limit = 20
 
@@ -118,6 +125,4 @@ def solve_b(data: list[str], example: bool = False) -> int:
 
 if __name__ == "__main__":
     sys.argv.append(f"--day={utilities.get_day(__file__)}")
-    sys.argv.append("--part=b")
-    sys.argv.append("--expected_sample=285")
     fire.Fire(main)

@@ -54,8 +54,8 @@ def solve_b(data: list[str], example: bool = False) -> int:
         idx = val.index
         current_do = val.operation
 
-        if current_do == 1:
-            valid_text.append(string[idx:])
+    if current_do == 1:
+        valid_text.append(string[idx:])
 
     muls = list(chain(*[re.findall(MUL_PATTERN, j) for j in valid_text]))
 

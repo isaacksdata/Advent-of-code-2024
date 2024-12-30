@@ -1,3 +1,7 @@
+![](https://img.shields.io/badge/day%20%F0%9F%93%85-22-blue)
+![](https://img.shields.io/badge/stars%20%E2%AD%90-45-yellow)
+![](https://img.shields.io/badge/days%20completed-17-red)
+
 # AOC 2024
 
 ## Data
@@ -16,3 +20,13 @@ python solutions/day_1.py --part="a" --expected_sample=11
 ```
 
 Use `--test` to run the sample but not the main puzzle.
+
+## Profiling
+
+#### Example Data
+
+![Example Data](example_profiling.png)
+
+#### Puzzle Data
+
+![Puzzle Data](puzzle_profiling.png)

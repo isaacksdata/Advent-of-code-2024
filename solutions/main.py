@@ -1,12 +1,15 @@
 import importlib
 import logging
 import os
+from typing import Optional
 
 import utilities
 from constants import YEAR
 
 
-def main(day: int = 1, part: str = "a", expected_sample: int = 0, test: bool = False) -> None:
+def main(
+    day: int = 1, part: str = "a", expected_sample: Optional[int] = None, test: bool = False, force_test: bool = False
+) -> None:
     path_prefix = "../" if os.getcwd().endswith("solutions") else "./"
     sample = utilities.read_sample_data(f"{path_prefix}data/day_{day}_{part}.txt")
 
@@ -23,6 +26,11 @@ def main(day: int = 1, part: str = "a", expected_sample: int = 0, test: bool = F
         logging.info("Sample Succeeded!")
     else:
         logging.info("Skipping sample!")
+
+    if force_test:
+        logging.info("Force Testing! This runs the example data but does not verify the answer!")
+        sample_answer = func(sample, example=True)
+        logging.info("Test answer = %s", sample_answer)
 
     if not test:
         puzzle = utilities.format_input_data(utilities.get_puzzle(year=YEAR, day=day))

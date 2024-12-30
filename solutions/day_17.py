@@ -64,8 +64,8 @@ class Computer:
         return None
 
     def jnz(self, operand: int) -> None:
-        # cant check if symbolic value is not 0 so we minus 1 here as we will add it back again during run()
-        self.instruction_pointer = operand - 1
+        if self.register_a != 0:
+            self.instruction_pointer = operand - 1
         return None
 
     def bxc(self, operand: int) -> None:
@@ -122,6 +122,11 @@ class SymbolicComputer(Computer):
 
     def _division(self, numerator: int, denominator: int) -> int:
         return numerator >> denominator
+
+    def jnz(self, operand: int) -> None:
+        # cant check if symbolic value is not 0 so we minus 1 here as we will add it back again during run()
+        self.instruction_pointer = operand - 1
+        return None
 
     def run(self) -> list[int]:
         a = self.register_a
